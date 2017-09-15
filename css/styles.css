@@ -1,0 +1,26 @@
+body
+{
+  margin: 30px;
+}
+td {
+    padding: 30px;
+    text-align: left;
+  }
+tr
+  {
+    padding-top: : 40px;
+  }
+table {
+      width: 80%;
+      margin-left: 100px;
+      margin-right: 100px;
+  }
+  button
+  {
+    width: 300px;
+    padding: 10px;
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-left: 160px;
+    margin-bottom: 30px;
+  }
