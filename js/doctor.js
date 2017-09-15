@@ -5,7 +5,7 @@ export class Doctor
     let promiseIssue = new Promise(function(resolve,reject)
     {
       let xhr = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=47.6062095,-122.3320708,100&skip=2&user_key=e336826f32ff2e21d2060411ed4a6ab1`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=47.6062095,-122.3320708,100&user_key=e336826f32ff2e21d2060411ed4a6ab1`;
       xhr.onload = function()
       {
         if(xhr.status === 200)
@@ -35,9 +35,9 @@ export class Doctor
           $("#doctors table").append("Title: " + body.data[i].profile.title+ "<br>");
           $("#doctors table").append("First Name: " + body.data[i].profile.first_name+ "<br>");
           $("#doctors table").append("Last Name: " + body.data[i].profile.last_name+ "<br>");
-          // $("#doctors table").append("Specialist: " + body.data[i].specialties.actor+ "<br>");
-          // $("#doctors table").append("Description: " + body.data[i].specialties.description+ "<br>");
-          $("#doctors table").append("Accepts New Patients: " + body.data[i].practices.accepts_new_patients+ "<br>");
+          $("#doctors table").append("Specialist: " + body.data[i].specialties[0].actor+ "<br>");
+          $("#doctors table").append("Description: " + body.data[i].specialties[0].description+ "<br>");
+          $("#doctors table").append("Accepts New Patients: " + body.data[i].practices[0].accepts_new_patients+ "<br>");
           $("#doctors table").append('</td>');
           $("#doctors table").append('<td>');
           $("#doctors table").append('<img src="'+body.data[i].profile.image_url+'"/>');
@@ -88,11 +88,11 @@ export class Doctor
           {
             $("#doctors table").append('<tr>');
             $("#doctors table").append('<td>');
-            // $("#doctors table").append("Name: " + body.data.practices.name+ "<br>");
-            $("#doctors table").append("Location: " + body.data[i].practices.location_slug+ "<br>");
-            $("#doctors table").append("Accepts New Patients: " + body.data[i].practices.accepts_new_patients+ "<br>");
-            $("#doctors table").append("Specialist: " + body.data[i].specialties.name+ "<br>");
-            $("#doctors table").append("Description: " + body.data[i].specialties.description+ "<br>");
+            $("#doctors table").append("Name: " + body.data[i].practices[0].name+ "<br>");
+            $("#doctors table").append("Location: " + body.data[i].practices[0].location_slug+ "<br>");
+            $("#doctors table").append("Accepts New Patients: " + body.data[i].practices[0].accepts_new_patients+ "<br>");
+            $("#doctors table").append("Specialist: " + body.data[i].specialties[0].name+ "<br>");
+            $("#doctors table").append("Description: " + body.data[i].specialties[0].description+ "<br>");
             $("#doctors table").append('</td>');
             $("#doctors table").append('<td>');
             $("#doctors table").append('<img src="'+body.data[i].profile.image_url+'"/>');
